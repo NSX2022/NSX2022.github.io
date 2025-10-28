@@ -1,2 +1,2 @@
-# Website code
-In this repository you can find a very simple personal website's code.
+# Topic
+This is a website about Roguelikes for CS class
