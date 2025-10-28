@@ -10,6 +10,7 @@
 		margin: 0;
 		padding: 20px;
 		color: white;
+		font-size: 22px;
 
 		display: flex;
 		flex-direction: column;
@@ -18,6 +19,12 @@
 	}
 	p {
 		width: 800px;
+	}
+	ol {
+		width: 700px;
+	}
+	ul {
+		width: 700px;
 	}
 	a {
 		color: #2dff11
@@ -32,6 +39,8 @@
 		<h1>
 			Introduction to Roguelikes
 		</h1>
+		<img src="img/qudmoment.gif" alt="You can throw a nuclear bomb in Caves of Qud" width="790px" height="300px" title = "Throwing a nuclear bomb in Caves of Qud">
+
 		<p>
 			What is a roguelike?
 
@@ -39,35 +48,34 @@
 			this is a question that has puzzled enjoyers of the genre for years, as the
 			term "Roguelike" gets applied to everything from the original Rogue to Fortnite.
 		</p>
-		<h3>
-			What is a Roguelike?
-		</h3>
+		<h2>
+			Defining "Roguelike"
+		</h2>
 		<p>
 			Developers and players at the International Roguelike Development Conference of 2008
 			argued for many hours about what defines a Roguelike, eventually deciding
 			on 13 key factors, known as the <strong><a href="https://www.roguebasin.com/index.php/Berlin_Interpretation">Berlin Interpretation</a></strong>:
 		</p>
 		<ol>
-			<li>The world of the game is randomly generated</li>
+			<li>The world is randomly generated</li>
 			<li>Death is permanent; you must create a new character after you die if you want to play again</li>
 			<li>The game is turn based and grid based (like a board game)</li>
 			<li>There is no meta progression; each new start is a blank slate with no impact from previous runs</li>
-			<li>Actions are non-modal. You should be able to do any action regardless of game state <br> (e.g, choosing to fight in a shop)</li>
+			<li>Actions are non-modal. You should be able to do any action regardless of game state (e.g, choosing to fight in a shop)</li>
 			<li>The game is complex enough to allow multiple solutions to the same problem (more on this later!)</li>
-			<li>You have to manage your limited resources (e.g. food, healing potions) <br>
+			<li>You have to manage your limited resources (e.g. food, healing potions)
 				and find uses for the resources you receive</li>
 			<li>Killing hoards of enemies must be a part of gameplay</li>
 			<li>The world must be explored carefully by the player (unless you want to become familiar with rule 2)</li>
 			<li>The player controls a single character and the game is singleplayer</li>
-			<li>Enemies abide by the same rules as players (They can cast fireballs and detonate bombs too,<br>
-				 watch out!)</li>
+			<li>Enemies abide by the same rules as players (They can cast spells and throw grenades too, be careful!)</li>
 			<li>The game is a tactical challenge, you have to learn and plan before you can make significant progress</li>
 			<li>Graphics are minimal</li>
 		</ol>
 
 		<p>
 			Naturally, much has changed since 2008, and these rules are now seen as guidelines rather than
-			the law. Games that violate these rules (to a point) are seen as roguelikes by many:
+			the law. Games that violate many of these rules are still seen as roguelikes by most in the modern day:
 		</p>
 		<ul>
 			<li>The Binding of Isaac</li>
@@ -75,12 +83,30 @@
 			<li>Rogue Legacy</li>
 			<li>Brotato</li>
 			<li>Inscryption</li>
+			<li>Disfigure</li>
 		</ul>
 
-		<h3>
+		<h2>
 			What is the appeal?
+		</h2>
+		<h3>
+			For players
 		</h3>
 
+
+		<h3>
+			For developers
+		</h3>
+
+		<h2>What goes into a Roguelike?</h2>
+
+		<h3>World Generation</h3>
+		<img src="img/WorldGen.gif" alt="Generating an island in Dwarf Fortress" width="505px" height="552px" title = "Generating an island in Dwarf Fortress">
+
+		<h2>Try a Roguelike!</h2>
+		<p>This is Hebert Wolverson's <i>Rusty Roguelike</i> from his <strong><a href="https://bfnightly.bracketproductions.com/">Make a Roguelike in Rust</a></strong> tutorial series. You can play it right here on my site!
+			Use the <strong>numpad</strong> to move, <strong>I</strong> for inventory, <strong>G</strong> to pick things up, and <strong>move into enemies/NPCs</strong> to attack/interact.
+		</p>
 
 		<canvas id="canvas" width="640" height="480"></canvas>
 		<script src="./myblob.js"></script>
@@ -101,5 +127,12 @@
 		}
 		});
 		</script>
+
+		<p><br>
+			If you want to play a more fleshed-out roguelike, try <strong><a href="https://crawl.develz.org/play.htm">Dungeon Crawl Stone Soup</a></strong>. It has over 300 different enemy types and 26 playable classes!
+			It's quite the learning curve though, so I recommend the <strong><a href="http://crawl.chaosforge.org/Crawl_Wiki">wiki</a></strong>
+		</p>
+
+		<iframe src="https://crawl.develz.org/play.htm" title="Dungeon Crawl Stone Soup" width="920" height="680"></iframe>
 	</body>
 </html>
