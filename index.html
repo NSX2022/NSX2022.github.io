@@ -1,30 +1,70 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title>Introduction to Roguelikes</title>
+<style>
+	body {
+		background-color: black;
+		margin: 0;
+		padding: 20px;
+		color: white;
 
-	
+		display: flex;
+		flex-direction: column;
+		align-items: center;      /* Centers horizontally */
+		min-height: 100vh;        /* Full viewport height */
+	}
+	#canvas {
+		border: 1px solid white;
+		display: block;
+	}
+</style>
+</head>
+	<body>
+		<h1>
+			Introduction to Roguelikes
+		</h1>
+		<p>
+			What is a roguelike?
 
-    <title style="color: white">Introduction to Roguelikes</title>
-	<link rel="icon" href="img/icon.jpg" type="image/jpg" />
-  </head>
-  <body style="background-color: black;">
-	<!-- Navigation start -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
-	<a class="navbar-brand" href="index.html">
-		<img src="img/icon.jpg" width="60" height="30" class="d-inline-block align-top" alt="">
-	  	Introduction to Roguelikes
-	</a>
-	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-		<span class="navbar-toggler-icon"></span>
-	</button>	
+			First of all, it is my favorite genre of game! But on a serious note, <br>
+			this is a question that has puzzled enjoyers of the genre for years, <br>
+			as the definition gets applied to everything from the original Rogue to Fortnite.
+		</p>
+		<h3>
+			Classic Roguelikes
+		</h3>
+		<p>
+			Developers at the International Roguelike Development Conference of 2008 <br>
+			argued for many hours about what defines a Roguelike, eventually deciding <br>
+			on 13 key factors, known as the <a href="https://www.roguebasin.com/index.php/Berlin_Interpretation">Berlin Interpretation</a>:
+		</p>
+		<ol>
+			<li>The world of the game is randomly generated</li>
+			<li>Death is permanent; you must create a new character after you die if you want to play again</li>
+		</ol>
 
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-  </body>
+
+		<canvas id="canvas" width="640" height="480"></canvas>
+		<script src="./myblob.js"></script>
+		<script>
+		window.addEventListener("load", async () => {
+		console.log("Loading WASM...");
+		try {
+			await wasm_bindgen("./myblob_bg.wasm");
+			console.log("WASM loaded successfully");
+			
+			// Give the canvas focus
+			const canvas = document.getElementById("canvas");
+			canvas.focus();
+			canvas.click();
+			
+		} catch (error) {
+			console.error("Error loading WASM:", error);
+		}
+		});
+		</script>
+	</body>
 </html>
