@@ -37,6 +37,44 @@
 		border: 2px solid #2dff11;
 		display:block;
 	}
+	img {
+		border: 2px solid #2dff11;
+		display:block;
+	}
+	/* Glowing text */
+	.glow {
+		font-size: 22px;
+		color: #fff;
+		text-align: center;
+		animation: glow 1s ease-in-out infinite alternate;
+	}
+
+	.glow2 {
+		font-size: 22px;
+		color: #fff;
+		text-align: center;
+		animation: glow2 1s ease-in-out infinite alternate;
+	}
+
+	@-webkit-keyframes glow {
+		from {
+			text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #6a622e, 0 0 40px #6a622e, 0 0 50px #6a622e, 0 0 60px #6a622e, 0 0 70px #6a622e;
+		}
+		
+		to {
+			text-shadow: 0 0 20px #fff, 0 0 30px #c7b95b, 0 0 40px #c7b95b, 0 0 50px #c7b95b, 0 0 60px #c7b95b, 0 0 70px #c7b95b, 0 0 80px #c7b95b;
+		}
+	}
+
+	@-webkit-keyframes glow2 {
+		from {
+			text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #153914, 0 0 40px #153914, 0 0 50px #153914, 0 0 60px #153914, 0 0 70px #153914;
+		}
+		
+		to {
+			text-shadow: 0 0 20px #fff, 0 0 30px #56c752, 0 0 40px #56c752, 0 0 50px #56c752, 0 0 60px #56c752, 0 0 70px #56c752, 0 0 80px #56c752;
+		}
+	}
 </style>
 </head>
 	<body>
@@ -89,18 +127,61 @@
 			<li>Inscryption</li>
 			<li>Disfigure</li>
 		</ul>
+		<p>
+			All of these are good games worth trying, but we'll be focusing on traditional roguelikes; which I personally define
+			as games that meet at least 11 of these rules.
+		</p>
 
 		<h2>
 			What is the appeal?
 		</h2>
+
+		<p>
+			Not everyone is going to enjoy a roguelike. These games tend to be very hard to learn and the limited graphics can make
+			it difficult to approach. There's a reason why even the best of this genre tends to be niche! With that being said, I 
+			hope I can make my case.
+		</p>
+
 		<h3>
 			For players
 		</h3>
 
+		<p>
+			For those willing to brave the procedurally generated depths of a good roguelike, these games have an endless amount to offer.
+			Because the worlds are randomly generated, each dungeon is different from the last: even in a more bare-bones roguelike, such
+			as <i>Rusty Roguelike</i>, there are over 1.965377e+13 possible dungeons! This extends to loot too; each attempt has the promise of
+			finding a <a class="glow">Blessed +5 Greatsword</a> that can push you farther than any of your previous attempts,
+			or something that doesn't just rely on raw stats, such as 
+			an <a class="glow2">Enchanted Hood of Thorns</a> that not only damages your attackers, but heals you every time they get hurt by the thorns! 
+			<br>
+			<br>
+			Another two things that await intreped adventurers would be both enemy variety and, more importantly, mechanical discovery: think 
+			back to the <a class="glow2">Enchanted Hood of Thorns</a>; it damages enemies that attack you and heals you for the damage that it inflicts. What's 
+			stopping you from focusing your character on healing and then charging in wearing your enchanted hood? If you've played your cards
+			right, you won't even have to do the attacking! Your adversaries will try in vain to kill you in melee, only instead getting 
+			caught in the magical thorns and healing you for any of the damage they were lucky enough to inflict. A more straighforward
+			example would be the Cockatrice from <i>NetHack</i>: any flesh touched by this bird will turn to stone. So if you kill the bird
+			at range, and then wear gloves when you grab it, you can smack monsters with its corpse to instantly turn them to stone!
+			<br>
+			<br>
+		</p>
+			<img src="img/OPcogmind.gif" title="A good run in Cogmind">
+			<h5>This is what can happen if you use the tools avalible in the game</h5>
+			<br>
+			<br>
+		<p>
+			In short, there are many ways to solve problems and create a character that is both powerful and fun! This is due to the complexity
+			of roguelikes, not in spite of it. Even after hundreds of hours in one of my favorite roguelikes, <i>Caves of Qud</i>, I'm
+			still finding new enemies and items!
+		</p>
 
 		<h3>
 			For developers
 		</h3>
+
+		<p>
+
+		</p>
 
 		<h2>What goes into a Roguelike?</h2>
 
@@ -108,7 +189,7 @@
 		<img src="img/WorldGen.gif" alt="Generating an island in Dwarf Fortress" width="505px" height="552px" title = "Generating an island in Dwarf Fortress">
 
 		<h2>Try a Roguelike!</h2>
-		<p>This is Hebert Wolverson's <i>Rusty Roguelike</i> from his <strong><a href="https://bfnightly.bracketproductions.com/">Make a Roguelike in Rust</a></strong> tutorial series. You can play it right here on my site!
+		<p>This is Hebert Wolverson's aforementioned Rusty Roguelike from his <strong><a href="https://bfnightly.bracketproductions.com/">Make a Roguelike in Rust</a></strong> tutorial series. You can play it right here on my site!
 			Use the <strong>numpad</strong> to move, <strong>I</strong> for inventory, <strong>G</strong> to pick things up, and <strong>move into enemies/NPCs</strong> to attack/interact.
 		</p>
 
