@@ -29,6 +29,13 @@
 	a {
 		color: #2dff11
 	}
+	h5 {
+		width: 300px;
+	}
+	video {
+		border: 2px solid #2dff11;
+		display: block;
+	}
 	#canvas {
 		border: 2px solid #2dff11;
 		display: block;
@@ -75,9 +82,47 @@
 			text-shadow: 0 0 20px #fff, 0 0 30px #56c752, 0 0 40px #56c752, 0 0 50px #56c752, 0 0 60px #56c752, 0 0 70px #56c752, 0 0 80px #56c752;
 		}
 	}
+
+	.tabs {
+		display: flex;
+		justify-content: right;
+		gap: 10px;
+		margin-bottom: 30px;
+		padding: 6px;
+		background-color: #1f1f1f;
+		border-bottom: 2px solid #2dff11;
+		border-top: 2px solid #2dff11
+	}
+	
+	.tab {
+		padding: 10px 20px;
+		background-color: #252525;
+		border: 2px solid #2dff11;
+		color: #2dff11;
+		text-decoration: none;
+		font-size: 18px;
+		transition: all 0.3s ease;
+		cursor: pointer;
+	}
+	
+	.tab:hover {
+		background-color: #2dff11;
+		color: #151515;
+	}
+	
+	.tab.active {
+		background-color: #2dff11;
+		color: #151515;
+	}
 </style>
 </head>
 	<body>
+		<div class="tabs">
+			<a href="index.html" class="tab active">Main</a>
+			<a href="videos.html" class="tab">Suggested Viewing</a>
+			<a href="makeyourown.html" class ="tab">Make Your Own</a>
+		</div>
+
 		<h1>
 			Introduction to Roguelikes
 		</h1>
@@ -105,8 +150,7 @@
 			<li>There is no meta progression; each new start is a blank slate with no impact from previous runs</li>
 			<li>Actions are non-modal. You should be able to do any action regardless of game state (e.g, choosing to fight in a shop)</li>
 			<li>The game is complex enough to allow multiple solutions to the same problem (more on this later!)</li>
-			<li>You have to manage your limited resources (e.g. food, healing potions)
-				and find uses for the resources you receive</li>
+			<li>You have to manage your limited resources (e.g. food, healing potions) and find uses for the resources you receive</li>
 			<li>Killing hoards of enemies must be a part of gameplay</li>
 			<li>The world must be explored carefully by the player (unless you want to become familiar with rule 2)</li>
 			<li>The player controls a single character and the game is singleplayer</li>
@@ -117,7 +161,7 @@
 
 		<p>
 			Naturally, much has changed since 2008, and these rules are now seen as guidelines rather than
-			the law. Games that violate many of these rules are still seen as roguelikes by most in the modern day:
+			the law. Games that violate much of this definition are still seen as roguelikes by most in the modern day:
 		</p>
 		<ul>
 			<li>The Binding of Isaac</li>
@@ -127,6 +171,7 @@
 			<li>Inscryption</li>
 			<li>Disfigure</li>
 			<li>Project Zomboid</li>
+			<li>A Dark Room</li>
 		</ul>
 		<p>
 			All of these are good games worth trying, but we'll be focusing on traditional roguelikes; which I personally define
@@ -183,20 +228,65 @@
 		</h3>
 
 		<p>
-
+			Many who are passionate about the genre go on to develope their own roguelikes, it's somewhat seen as a rite of passage in the 
+			community. But don't let the 1990s graphics fool you, this is no easy task! That being said, easy things are rarely fun. So what
+			would you need to do to make a roguelike?
+			<br>
+			<br>
+			The two main things you need to consider are systems and random generation. Everything boils down to those and how they interact
+			with each other. World generation is random generation, but how things happen in the world is governed by systems. I consider
+			these to be a joy to make! For example, generating a dungeon could be as simple as starting with a grid full of walls, and then
+			carving X number of rooms by subtracting from the walls each with ≥1 exits, like so:
+			<br>
+			<br> <!--  TODO edit this gif to not show the Rusty Roguelike title screen  -->
+			<!--<img src="img/simplemapgen.gif" alt="Generating square rooms with hallways" width="840px" height="520px" title="Generating square rooms with hallways">-->
+			<video autoplay loop muted playsinline preload="auto">
+				<source src="img/simplemapgen.webm" type="video/webm">
+				Your browser does not support the video tag
+			</video>
+			<br>
+			You can expand from this in innumerable different ways, for example, adding circular rooms to the mix:
+			<br>
+			<br>
+			<img src="img/somecircularrooms.gif" alt="A mix of rectangular and circular rooms">
+			<br>
+			<br>
+			In some roguelikes like <i>ADOM</i>, <i>Dwarf Fortress</i>, or Caves of Qud, there are entire worlds; with each
+			section being generated as an explorable chunk. This is where you have the most freedom in design: you can have biomes that alter
+			each chunk by adding different biome-specific tiles and entities, then overlap this with randomly generated structures and
+			natural features. If this sounds familiar, that's because these design choices first made by roguelike developers later
+			influenced Minecraft; <a href="https://www.wired.com/2013/11/minecraft-book/"><strong>Notch is a Dwarf Fortress fan!</strong></a>
 		</p>
 
-		<h2>What goes into a Roguelike?</h2>
+		
+		<img src="img/WorldGen.gif" alt="Generating an island in Dwarf Fortress" width="505px" height="720px" title = "Generating an island in Dwarf Fortress">
+		<h5>An island being generated in Dwarf Fortress. The gray triangles are mountains and the brown lines are roads that connect
+			different parts of different civilizations
+		</h5>
+		<br>
+		<br>
+		<p>
 
-		<h3>World Generation</h3>
-		<img src="img/WorldGen.gif" alt="Generating an island in Dwarf Fortress" width="505px" height="552px" title = "Generating an island in Dwarf Fortress">
-		<p class="glow" style="size: 60px">TODO DELETE OR REPURPOSE THIS SECTION, AND ADD TABS FOR THINGS LIKE COOL MOMENTS AND A TAB FOR VIDEOS</p>
+			Systems are the other side of the roguelike coin, and are a bit tougher to implement (and just as hard to explain!). You have
+			the basic systems; movement, hit detection, maybe hunger. But things get tricky when you have to calculate skin contact,
+			magical enchantments, antimagic that could counter said enchantments, and how rusty your mace is whenever you try to beat a monster
+			to death. <a href="https://en.wikipedia.org/wiki/Entity_component_system"><strong>There are solutions to this</strong></a>, some 
+			more complicated than others, and all with their own learning curves, pros, and cons.
+			<br>
+			<br>
+			The good news for developers is, it's your game and you decide the complexity. And with roguelikes especially, you can get started
+			very quickly and take things bit by bit. Even the most complex roguelike, and in my opinion the most complex game of all time,
+			Dwarf Fortress, started as one grid with nothing but rock and dwarves.
+
+		</p>
 
 
 
 		<h2>Try a Roguelike!</h2>
-		<p>This is Hebert Wolverson's aforementioned Rusty Roguelike from his <strong><a href="https://bfnightly.bracketproductions.com/">Make a Roguelike in Rust</a></strong> tutorial series. You can play it right here on my site!
-			Use the <strong>numpad</strong> to move, <strong>I</strong> for inventory, <strong>G</strong> to pick things up, and <strong>move into enemies/NPCs</strong> to attack/interact.
+		<p>This is Hebert Wolverson's aforementioned Rusty Roguelike from his <strong><a href="https://bfnightly.bracketproductions.com/">
+			Make a Roguelike in Rust</a></strong> tutorial series. You can play it right here on my site! Use the <strong>numpad</strong> 
+			to move, <strong>I</strong> for inventory, <strong>G</strong> to pick things up, and <strong>move into enemies/NPCs</strong> to 
+			attack/interact with them.
 		</p>
 
 		<canvas id="canvas" width="640" height="480"></canvas>
@@ -220,10 +310,11 @@
 		</script>
 
 		<p><br>
-			If you want to play a more fleshed-out roguelike, try <strong><a href="https://crawl.develz.org/play.htm">Dungeon Crawl Stone Soup</a></strong>. It has over 300 different enemy types and 26 playable classes!
-			It's quite the learning curve though, so I recommend the <strong><a href="http://crawl.chaosforge.org/Crawl_Wiki">wiki</a></strong>
+			If you want to play a more fleshed-out roguelike, try <strong><a href="https://crawl.develz.org/play.htm">Dungeon Crawl Stone 
+			Soup</a></strong>. It has over 300 different enemy types and 26 playable classes! The game hase quite the learning curve though,
+			so I recommend the <strong><a href="http://crawl.chaosforge.org/Crawl_Wiki">wiki</a></strong>
 		</p>
 
-		<iframe src="https://crawl.develz.org/play.htm" title="Dungeon Crawl Stone Soup" width="920" height="680"></iframe>
+		<iframe src="https://crawl.develz.org/play.htm" alt="Dungeon Crawl Stone Soup" width="920" height="680"></iframe>
 	</body>
 </html>
