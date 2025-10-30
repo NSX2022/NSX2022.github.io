@@ -17,14 +17,15 @@
 		align-items: center;      /* horizontal */
 		min-height: 100vh;        
 	}
+	/* TODO switch to percentages instead of px */
 	p {
-		width: 800px;
+		width: 65%;
 	}
 	ol {
-		width: 700px;
+		width: 50%;
 	}
 	ul {
-		width: 700px;
+		width: 50%;
 	}
 	a {
 		color: #2dff11
@@ -48,7 +49,7 @@
 		border: 2px solid #2dff11;
 		display:block;
 	}
-	/* Glowing text */
+	
 	.glow {
 		font-size: 22px;
 		color: #fff;
@@ -126,6 +127,7 @@
 		<h1>
 			Introduction to Roguelikes
 		</h1>
+		
 		<img src="img/qudmoment.gif" alt="You can throw a nuclear bomb in Caves of Qud" width="790px" height="300px" title = "Throwing a nuclear bomb in Caves of Qud">
 
 		<p>
@@ -240,18 +242,23 @@
 			<br>
 			<br> <!--  TODO edit this gif to not show the Rusty Roguelike title screen  -->
 			<!--<img src="img/simplemapgen.gif" alt="Generating square rooms with hallways" width="840px" height="520px" title="Generating square rooms with hallways">-->
+		</p>
 			<video autoplay loop muted playsinline preload="auto">
 				<source src="img/simplemapgen.webm" type="video/webm">
 				Your browser does not support the video tag
 			</video>
 			<br>
-			You can expand from this in innumerable different ways, for example, adding circular rooms to the mix:
+			<br>
+		<p>
+			You can expand from this in innumerable different ways, for example, by adding circular rooms to the mix:
+		</p>
 			<br>
 			<br>
 			<img src="img/somecircularrooms.gif" alt="A mix of rectangular and circular rooms">
 			<br>
 			<br>
-			In some roguelikes like <i>ADOM</i>, <i>Dwarf Fortress</i>, or Caves of Qud, there are entire worlds; with each
+		<p>
+			In some roguelikes like <i>ADOM</i>, <i>Dwarf Fortress</i>, or Caves of Qud, there are entire continents to explore; with each
 			section being generated as an explorable chunk. This is where you have the most freedom in design: you can have biomes that alter
 			each chunk by adding different biome-specific tiles and entities, then overlap this with randomly generated structures and
 			natural features. If this sounds familiar, that's because these design choices first made by roguelike developers later
@@ -261,7 +268,7 @@
 		
 		<img src="img/WorldGen.gif" alt="Generating an island in Dwarf Fortress" width="505px" height="720px" title = "Generating an island in Dwarf Fortress">
 		<h5>An island being generated in Dwarf Fortress. The gray triangles are mountains and the brown lines are roads that connect
-			different parts of different civilizations
+			different parts of different civilizations.
 		</h5>
 		<br>
 		<br>
@@ -284,7 +291,7 @@
 
 		<h2>Try a Roguelike!</h2>
 		<p>This is Hebert Wolverson's aforementioned Rusty Roguelike from his <strong><a href="https://bfnightly.bracketproductions.com/">
-			Make a Roguelike in Rust</a></strong> tutorial series. You can play it right here on my site! Use the <strong>numpad</strong> 
+			Make a Roguelike in Rust</a></strong> series. You can play it right here on my site! Use the <strong>numpad</strong> 
 			to move, <strong>I</strong> for inventory, <strong>G</strong> to pick things up, and <strong>move into enemies/NPCs</strong> to 
 			attack/interact with them.
 		</p>
