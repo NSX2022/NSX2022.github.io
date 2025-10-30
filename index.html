@@ -7,7 +7,15 @@
 <style>
 	body {
 		background-color: #151515;
-		/*background-image: url("img/roguetemple_background.png");*/
+		background-image: 
+        linear-gradient(to right, 
+            transparent 0%, 
+            transparent 15%, 
+            #151515 15%, 
+            #151515 85%, 
+            transparent 85%, 
+            transparent 100%),
+        url("img/roguetemple_background.png");
 		margin: 0;
 		padding: 20px;
 		color: white;
@@ -18,7 +26,7 @@
 		align-items: center;      /* horizontal */
 		min-height: 100vh;        
 	}
-	/* TODO switch to percentages instead of px */
+	
 	p {
 		width: 65%;
 	}
