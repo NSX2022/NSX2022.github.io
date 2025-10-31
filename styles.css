@@ -1,0 +1,134 @@
+body {
+		background-color: #151515;
+		background-image: 
+        linear-gradient(to right, 
+            transparent 0%, 
+            transparent 15%, 
+            #151515 15%, 
+            #151515 85%, 
+            transparent 85%, 
+            transparent 100%),
+        url("img/roguetemple_background.png");
+		margin: 0;
+		padding: 20px;
+		color: white;
+		font-size: 22px;
+
+		display: flex;
+		flex-direction: column;
+		align-items: center;      /* horizontal */
+		min-height: 100vh;        
+}
+
+p {
+	width: 65%;
+}
+ol {
+    width: 50%;
+    counter-reset: item;
+}
+ol li {
+    counter-increment: item;
+    margin-bottom: 12px;
+}
+ol li::marker {
+    content: "> " counter(item)". ";
+}
+ul {
+    list-style-type: none;
+    width: 50%;
+}
+ul li {
+    margin-bottom: 12px;
+}
+ul li::before {
+    content: "> ";
+}
+a {
+    color: #2dff11
+}
+h5 {
+    width: 20%;
+}
+video {
+    border: 2px solid #2dff11;
+    display: block;
+}
+#canvas {
+    border: 2px solid #2dff11;
+    display: block;
+}
+iframe {
+    border: 2px solid #2dff11;
+    display:block;
+}
+img {
+    border: 2px solid #2dff11;
+    display:block;
+}
+
+.glow {
+    font-size: 22px;
+    color: #fff;
+    text-align: center;
+    animation: glow 1s ease-in-out infinite alternate;
+}
+
+.glow2 {
+    font-size: 22px;
+    color: #fff;
+    text-align: center;
+    animation: glow2 1s ease-in-out infinite alternate;
+}
+
+@-webkit-keyframes glow {
+    from {
+        text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #6a622e, 0 0 40px #6a622e, 0 0 50px #6a622e, 0 0 60px #6a622e, 0 0 70px #6a622e;
+    }
+    
+    to {
+        text-shadow: 0 0 20px #fff, 0 0 30px #c7b95b, 0 0 40px #c7b95b, 0 0 50px #c7b95b, 0 0 60px #c7b95b, 0 0 70px #c7b95b, 0 0 80px #c7b95b;
+    }
+}
+
+@-webkit-keyframes glow2 {
+    from {
+        text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #153914, 0 0 40px #153914, 0 0 50px #153914, 0 0 60px #153914, 0 0 70px #153914;
+    }
+    
+    to {
+        text-shadow: 0 0 20px #fff, 0 0 30px #56c752, 0 0 40px #56c752, 0 0 50px #56c752, 0 0 60px #56c752, 0 0 70px #56c752, 0 0 80px #56c752;
+    }
+}
+
+.tabs {
+    display: flex;
+    justify-content: right;
+    gap: 10px;
+    margin-bottom: 30px;
+    padding: 6px;
+    background-color: #1f1f1f;
+    border-bottom: 2px solid #2dff11;
+    border-top: 2px solid #2dff11
+}
+
+.tab {
+    padding: 10px 20px;
+    background-color: #252525;
+    border: 2px solid #2dff11;
+    color: #2dff11;
+    text-decoration: none;
+    font-size: 18px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.tab:hover {
+    background-color: #2dff11;
+    color: #151515;
+}
+
+.tab.active {
+    background-color: #2dff11;
+    color: #151515;
+}

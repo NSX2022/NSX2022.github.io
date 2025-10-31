@@ -4,123 +4,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<title>Make Your Own Roguelike</title>
-<style>
-	body {
-		background-color: #151515;
-		background-image: 
-        linear-gradient(to right, 
-            transparent 0%, 
-            transparent 15%, 
-            #151515 15%, 
-            #151515 85%, 
-            transparent 85%, 
-            transparent 100%),
-        url("img/roguetemple_background.png");
-		margin: 0;
-		padding: 20px;
-		color: white;
-		font-size: 22px;
-
-		display: flex;
-		flex-direction: column;
-		align-items: center;      /* horizontal */
-		min-height: 100vh;        
-	}
-	p {
-		width: 65%;
-	}
-	ol {
-		width: 50%;
-	}
-	ul {
-		width: 50%;
-	}
-	a {
-		color: #2dff11
-	}
-	h5 {
-		width: 20%;
-	}
-	#canvas {
-		border: 2px solid #2dff11;
-		display: block;
-	}
-	iframe {
-		border: 2px solid #2dff11;
-		display:block;
-	}
-	img {
-		border: 2px solid #2dff11;
-		display:block;
-	}
-	/* Glowing text */
-	.glow {
-		font-size: 22px;
-		color: #fff;
-		text-align: center;
-		animation: glow 1s ease-in-out infinite alternate;
-	}
-
-	.glow2 {
-		font-size: 22px;
-		color: #fff;
-		text-align: center;
-		animation: glow2 1s ease-in-out infinite alternate;
-	}
-
-	@-webkit-keyframes glow {
-		from {
-			text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #6a622e, 0 0 40px #6a622e, 0 0 50px #6a622e, 0 0 60px #6a622e, 0 0 70px #6a622e;
-		}
-		
-		to {
-			text-shadow: 0 0 20px #fff, 0 0 30px #c7b95b, 0 0 40px #c7b95b, 0 0 50px #c7b95b, 0 0 60px #c7b95b, 0 0 70px #c7b95b, 0 0 80px #c7b95b;
-		}
-	}
-
-	@-webkit-keyframes glow2 {
-		from {
-			text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #153914, 0 0 40px #153914, 0 0 50px #153914, 0 0 60px #153914, 0 0 70px #153914;
-		}
-		
-		to {
-			text-shadow: 0 0 20px #fff, 0 0 30px #56c752, 0 0 40px #56c752, 0 0 50px #56c752, 0 0 60px #56c752, 0 0 70px #56c752, 0 0 80px #56c752;
-		}
-	}
-
-	.tabs {
-		display: flex;
-		justify-content: right;
-		gap: 10px;
-		margin-bottom: 30px;
-		padding: 6px;
-		background-color: #1f1f1f;
-		border-bottom: 2px solid #2dff11;
-		border-top: 2px solid #2dff11
-	}
-	
-	.tab {
-		padding: 10px 20px;
-		background-color: #252525;
-		border: 2px solid #2dff11;
-		color: #2dff11;
-		text-decoration: none;
-		font-size: 18px;
-		transition: all 0.3s ease;
-		cursor: pointer;
-	}
-	
-	.tab:hover {
-		background-color: #2dff11;
-		color: #151515;
-	}
-	
-	.tab.active {
-		background-color: #2dff11;
-		color: #151515;
-	}
-	
-</style>
+	<link rel="stylesheet" href="styles.css">
 </head>
 	<body>
         <div class="tabs">
@@ -139,7 +23,7 @@
 			was written in the memory safe buisiness language OCaml!
 			<br>
 			<br>
-			The best way to start though is to use Python and <strong><a href="https://github.com/libtcod/libtcod">libtcod</a></strong>, a
+			The easiest way to start though is to use Python and <strong><a href="https://github.com/libtcod/libtcod">libtcod</a></strong>, a
 			library that gives you all of the tools you need.
 			<br>
 			<br>
@@ -151,10 +35,91 @@
 			title=""
 			allowfullscreen>
 		</iframe>
-		<h5>A video by the creator of <i>Cogmind</i> detailing how to get started on making a roguelike</h5>
+		<h5>A video by the creator of <i>Cogmind</i> detailing how to get started on making a roguelike. Almost everything I want to say
+		is in this video.</h5>
 		<p>
-			The best way to learn is to go out and make things. I hope this page gave you a place to start, and good luck!
+			The way to learn is to go out and make things. I hope this page gave you a place to start, and good luck!
         </p>
+
+		<h2>
+			Inspiration
+		</h2>
+
+		<h3>
+			Roguelikes to try
+		</h3>
+		<ul>
+			<li>
+				<a href="https://github.com/tmewett/BrogueCE/releases"><strong><i>Brogue</i></strong></a> is a great introduction to
+				roguelikes, and is somewhat minimalistic while still being fun. And it's <a style="color:#51c44d">free!</a>
+			</li>
+			<li>
+				If ASCII graphics aren't your forté, maybe you'll enjoy <a href="https://www.cavesofqud.com/"><strong><i>Caves of Qud</i>
+				</strong></a>, a deep roguelike with factions, fungal infections, and a bit of time travel. It's going to set you back about
+				 <a style="color:#ff0b0b">$30</a> though.
+			</li>
+			<li>
+				<a href="https://crawl.develz.org/play.htm"><strong><i>Dungeon Crawl Stone Soup</i></strong></a> is like a classic 1990s 
+				roguelike, but with non ASCII graphics and playable in your browser. And it only comes at the low low price of... 
+				<a style="color:#51c44d">free!</a>
+			</li>
+			<li>
+				<a href="https://www.bay12games.com/dwarves/"><strong><i>Dwarf Fortress</i></strong></a> has ascended beyond a game into a 
+				partical accurate simulation.
+				<br>
+				That is only half a joke. Dwarf Fortress has two modes, one where you command a fortress and the dwarves within, called 
+				Fortress Mode, and the roguelike mode, Adventure mode, which is what is relevant for this site. These modes are 100% 
+				compatible, so if you have a fortress you can create a character and visit it (or plunder it!). There is no such thing as HP, 
+				instead all entities including the player have simulated tendons, bones, organs, and muscles that can be bruised, torn, or 
+				broken. Armor doesn't reduce damage flatly, instead the metal of the armor has a level of hardness and shock absorption. 
+				Also there are eight different types of clay generated accurately in their respective soil layers. I could have made this 
+				entire website about Dwarf Fortress...
+				<br>
+				The original version is <a style="color:#51c44d">free</a>, while the Steam version, which has graphics and sound effects,
+				costs <a style="color:#ff0b0b">$30</a>. Both have the same content and are recieving new updates, and you can add graphics 
+				to the free version via tilesets.
+			</li>
+			<li>
+				<a href="https://kyzrati.itch.io/polybot-7"><strong><i>Polybot7</i></strong></a> is the <a style="color:#51c44d">free</a>
+				alpha version of Cogmind, originally created as an entry to the 
+				<strong><a href="https://7drl.com/">7 day roguelike challenge</a></strong>
+			</li>
+			<li>
+				As you can see by how many times I've mentioned it, I recommend <a href="https://www.gridsagegames.com/cogmind/index.html">
+				<strong>Cogmind</strong></a>. It costs <a style="color:#ff0b0b">$25</a>. Check out its video in <a href="videos.html">
+				<strong>Suggested Viewing</strong></a> if you want to see what it's like.
+			</li>
+			<li>
+				If you like <i>Lord of the Rings</i>, or don't, you might want to try <a href="https://rephial.org/"><strong><i>Angband</i>
+				</strong></a>. It's a <a style="color:#51c44d">free</a> roguelike from 1992 based on a different roguelike,
+				<i>Moria</i>, from 1988, where you go deeper and deeper into the mountains of Middle Earth to confront the evils hiding at
+				the final floor.
+			</li>
+			<li>
+				<a href="https://www.nethack.org/"><strong><i>NetHack</i></strong></a> released in 1987 as a roguelike where the core concept 
+				is "If you can think it, you can do it." Want infinite food? Turn your enemies to stone with either spells or a cockatrice,
+				then cast Stone to Flesh for an endless suply of meat! And you can do all of this for <a style="color:#51c44d">free!</a>
+			</li>
+			<li>
+				How could I forget 
+				<a href="https://en.wikipedia.org/wiki/Rogue_(video_game)">
+				<strong><i>Rogue</i></strong></a>, the game where it all began*, made by two nerds in a small town in California. It does show 
+				its age, and plays like a beta of NetHack or Angband, but without Rogue leading the way neither of those games would have 
+				existed. You can download the 
+				<a href="https://archive.org/details/RogueTheAdventureGameV1.11984MichaelC.ToyKennethC.R.C.ArnoldAdventureRolePlayingRPG">
+				<strong>DosBox archive</strong></a> for <a style="color:#51c44d">free</a>, or cough up <a style="color:#ff0b0b">$3</a>
+				for the <a href="https://store.steampowered.com/app/1443430/Rogue/"><strong>steam version</strong></a>.
+			</li>
+		</ul>
+
+		<h3>
+			Communities
+		</h3>
+		<ul>
+			<li>
+
+			</li>
+		</ul>
 
 		<h2>
 			Resources
@@ -182,6 +147,15 @@
 			<br>
 			<br>
 			<br>
+		</p>
+		<br>
+		<br>
+		<br>
+		<p>
+			*Technically <a href="https://en.wikipedia.org/wiki/Star_Trek_(text_game)"><strong><i>Star Trek</i></strong></a>, a fangame about
+			the science fiction series made in 1971 was the first roguelike, followed by 
+			<a href="https://en.wikipedia.org/wiki/Beneath_Apple_Manor"><strong><i>Beneath Apple Manor</i></strong></a> in 1978. But the
+			genre is called roguelike for a reason, Rogue popularized the genre. And no one wants to call them applelikes!
 		</p>
     </body>
 </html>
