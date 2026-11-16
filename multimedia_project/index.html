@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Amazon Deforestation in Brazil, 1988–2025</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;800&family=Literata:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #eef2ee;
+    --ink: #14231a;
+    --muted: #55655b;
+    --line: #cbd6cd;
+    --forest: #2f6b45;
+    --alert: #b4381f;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font: 1.125rem/1.7 "Literata", Georgia, serif; }
+  header, main, footer { max-width: 44rem; margin: 0 auto; padding: 0 1.25rem; }
+  header { padding-top: 6rem; padding-bottom: 1rem; }
+  h1, h2 { font-family: "Archivo", system-ui, sans-serif; line-height: 1.1; letter-spacing: -0.02em; }
+  h1 { font-size: clamp(2.6rem, 8vw, 4.5rem); font-weight: 800; margin: 0 0 1rem; }
+  h2 { font-size: 1.8rem; font-weight: 800; margin: 0 0 0.75rem; }
+  .lede { font-size: 1.3rem; color: var(--muted); margin: 0; }
+  section { padding-top: 3rem; border-top: 1px solid var(--line); margin-top: 3rem; }
+  figure { margin: 1.5rem 0 0; }
+  .chart-box { position: relative; height: 400px; }
+  figcaption { font-size: 0.85rem; color: var(--muted); margin-top: 0.6rem; font-style: italic; }
+  .big { font-family: "Archivo", system-ui, sans-serif; font-weight: 800; font-size: clamp(3rem, 12vw, 5.5rem); line-height: 1; margin: 0; color: var(--alert); }
+  .big-label { margin: 0.25rem 0 0; color: var(--muted); }
+  footer { padding-top: 3rem; padding-bottom: 5rem; font-size: 0.9rem; color: var(--muted); }
+  footer h2 { font-size: 1.1rem; }
+  a { color: var(--forest); }
+  a:focus-visible { outline: 3px solid var(--alert); outline-offset: 2px; }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Politics and Deforestation in the Amazon</h1>
+  <p class="lede">Satellite records of annual deforestation in the Brazilian Amazon, from 1988 to 2025.
+    And why it increased under Bolsonaro.
+  </p>
+</header>
+
+<main>
+  <section>
+    <p class="big" id="total">–</p>
+    <p class="big-label">Square kilometres of forest cleared between 1988 and 2025, close to the size of Spain.</p>
+    <p>Brazil’s space agency, INPE, has measured Amazon deforestation by satellite since 1988 through a programme called PRODES. 
+        Its yearly figure covers August of one year through July of the next. 
+        The bars below show the area cleared each year, and the line shows the running total.</p>
+    <figure>
+      <div class="chart-box"><canvas id="annual" role="img" aria-label="Combined chart: bars show annual Amazon deforestation in square kilometres from 1988 to 2025, and a line shows the cumulative total, rising from about 376,000 to about 851,000 square kilometres"></canvas></div>
+      <figcaption>Annual deforestation (bars, left axis) and cumulative total (line, right axis), km². 
+        The cumulative line starts at 376,480 km² in 1988, so it includes clearing from before the series began. 
+        Source: <a href="https://terrabrasilis.dpi.inpe.br/en/home-page/">INPE PRODES</a>.</figcaption>
+    </figure>
+    <p></p>
+  </section>
+
+  <section>
+    <h2>Peaks, then a steep fall</h2>
+    <p>Clearing reached 29,059 km² in 1995 and passed 25,000 km² again in 2003 and 2004. After 2004 it fell fast, to 4,571 km² in 2012, the lowest value in the whole series. From 2013 to 2018 it stayed between about 5,000 and 7,900 km² a year.</p>
+  </section>
+
+  <section>
+    <h2>The rebound after 2018</h2>
+    <p>The annual figure rose from 2019 and climbed back above 10,000 km² in 2021 and 2022. The 2022 value of 11,600 km² was the highest since 2008.</p>
+    <figure>
+      <div class="chart-box"><canvas id="periods" role="img" aria-label="Bar chart of average annual deforestation across five time periods"></canvas></div>
+      <figcaption>Average annual deforestation by period, km² per year</figcaption>
+    </figure>
+  </section>
+
+  <section>
+    <h2>The latest drop</h2>
+    <p>Deforestation fell to 7,952 km² in 2023, 6,288 km² in 2024 and 5,264 km² in 2025, about 16% below the year before. The 2025 figure is the lowest since 2014, though still above the 2012 low.</p>
+  </section>
+</main>
+
+<footer>
+  <h2>About the data</h2>
+  <p>Figures are annual deforestation rates from INPE’s PRODES programme. PRODES counts clearcut areas of 6.25 hectares or more, so smaller clearings and forest degradation (from fire or selective logging) are not included. Official series and updates:
+  <a href="https://terrabrasilis.dpi.inpe.br/en/home-page/">INPE TerraBrasilis</a>.</p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+<script>
+  Chart.defaults.font.family = '"Archivo", system-ui, sans-serif';
+  Chart.defaults.color = "#55655b";
+
+  const years = [1988,1989,1990,1991,1992,1993,1994,1995,1996,1997,1998,1999,2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021,2022,2023,2024,2025];
+  const annual_deforested = [21050,17770,13730,11030,13786,14896,14896,29059,18161,13227,17383,17259,18226,18165,21651,25396,27772,19014,14285,11651,12911,7464,7000,6418,4571,5891,5012,6207,7893,6947,7536,9762,8426,10476,11600,7952,6288,5264];
+  const total_deforested = [376480,394250,407980,419010,432796,447692,462588,491647,509808,523035,540418,557677,575903,594068,615719,641115,668887,687901,702186,713837,726748,734212,741212,747630,752201,758092,763104,769311,777204,784151,791687,801449,809875,820351,831951,839903,846191,851455];
+
+  // Headline: sum of the annual values, 1988–2025
+  const sum = annual_deforested.reduce((a, b) => a + b, 0);
+  document.getElementById("total").textContent = sum.toLocaleString("en-US");
+
+  // 1. Annual bars (left axis) + cumulative line (right axis)
+  new Chart(document.getElementById("annual"), {
+    data: {
+      labels: years,
+      datasets: [
+        {
+          type: "bar",
+          label: "Annual (km²)",
+          data: annual_deforested,
+          backgroundColor: years.map(y => y >= 2019 && y <= 2022 ? "#b4381f" : "#2f6b45"),
+          yAxisID: "y",
+          order: 2
+        },
+        {
+          type: "line",
+          label: "Cumulative total (km²)",
+          data: total_deforested,
+          borderColor: "#14231a",
+          backgroundColor: "#14231a",
+          borderWidth: 2,
+          pointRadius: 0,
+          pointHoverRadius: 4,
+          tension: 0.2,
+          yAxisID: "y1",
+          order: 1
+        }
+      ]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      interaction: { mode: "index", intersect: false },
+      plugins: {
+        legend: { display: true, position: "bottom" },
+        tooltip: { callbacks: { label: c => `${c.dataset.label}: ${c.parsed.y.toLocaleString("en-US")}` } }
+      },
+      scales: {
+        x: { ticks: { maxRotation: 0, autoSkip: true, maxTicksLimit: 10 } },
+        y: {
+          position: "left", beginAtZero: true,
+          title: { display: true, text: "Annual, km² per year" },
+          ticks: { callback: v => v.toLocaleString("en-US") }
+        },
+        y1: {
+          position: "right", beginAtZero: true,
+          title: { display: true, text: "Cumulative, km²" },
+          grid: { drawOnChartArea: false },
+          ticks: { callback: v => v.toLocaleString("en-US") }
+        }
+      }
+    }
+  });
+
+  // 2. Period averages
+  const periods = [["1988–2004", 1988, 2004], ["2005–2012", 2005, 2012], ["2013–2018", 2013, 2018], ["2019–2022", 2019, 2022], ["2023–2025", 2023, 2025]];
+  const avg = periods.map(([, a, b]) => {
+    const v = annual_deforested.filter((_, i) => years[i] >= a && years[i] <= b);
+    return Math.round(v.reduce((s, x) => s + x, 0) / v.length);
+  });
+  new Chart(document.getElementById("periods"), {
+    type: "bar",
+    data: { labels: periods.map(p => p[0]), datasets: [{
+      data: avg, backgroundColor: ["#2f6b45", "#2f6b45", "#2f6b45", "#b4381f", "#2f6b45"]
+    }]},
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      plugins: { legend: { display: false } },
+      scales: { y: { beginAtZero: true, title: { display: true, text: "average km² per year" }, ticks: { callback: v => v.toLocaleString("en-US") } } }
+    }
+  });
+</script>
+</body>
+</html>
